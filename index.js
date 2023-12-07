@@ -24,7 +24,10 @@ mongoose
   .then(() => {
     console.log(`Connected to DB :) ...`);
   })
-  .catch((e) => console.log(`Failed to connect to DB :( ...${e}`));
+  .catch((error) => {
+    console.error(`Failed to connect to DB :( ...${error}`);
+    process.exit(1); // Exit the process on connection failure
+  });
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}...`);
